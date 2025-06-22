@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f1f6ff;
+  font-weight: bold;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+
+    span {
+      font-size: 18px;
+      color: #003366;
+    }
+  }
+
+  .nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #003366;
+    font-weight: 500;
+  }
+}

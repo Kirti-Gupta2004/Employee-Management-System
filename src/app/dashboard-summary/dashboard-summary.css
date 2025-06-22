@@ -1,0 +1,77 @@
+.dashboard {
+  padding: 2rem;
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .info-block {
+    flex: 1;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1.5rem;
+
+      .stat {
+        background: #e6f0ff;
+        padding: 1rem;
+        border-radius: 8px;
+        min-width: 140px;
+        text-align: center;
+        font-size: 14px;
+
+        strong {
+          font-size: 20px;
+          color: #002244;
+        }
+      }
+    }
+  }
+
+  .illustration {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.2rem;
+      background-color: #0055aa;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

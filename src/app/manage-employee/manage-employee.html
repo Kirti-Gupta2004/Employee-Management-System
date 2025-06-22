@@ -1,0 +1,110 @@
+<navbar></navbar>
+
+<!-- Blur the background when modal is open -->
+<div class="container" [class.blur]="showAddModal">
+  <div class="header">
+    <button class="add-btn" (click)="openAddModal()">➕ Add Employee</button>
+    <button class="search-btn">🔍 Search Employees</button>
+  </div>
+
+  <h2>Manage Employees</h2>
+
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>DOB</th>
+        <th>Joining Date</th>
+        <th>Salary (Rs)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees; let i = index">
+        <td>{{ emp.firstName }}</td>
+        <td>{{ emp.lastName }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.dob | date: 'mediumDate' }}</td>
+        <td>{{ emp.joiningDate | date: 'mediumDate' }}</td>
+        <td>{{ emp.salary | currency: 'INR' }}</td>
+        <td>
+          <button class="icon-btn" (click)="editEmployee(i)">✏️</button>
+          <button class="icon-btn" (click)="deleteEmployee(i)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="back-link">
+    <a (click)="goBack()" style="cursor: pointer">← Back</a>
+  </div>
+</div>
+
+<!-- Modal for Add Employee -->
+<div class="modal" *ngIf="showAddModal">
+  <div class="modal-content">
+    <h2>Add Employee</h2>
+    <form>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="firstName">First Name</label>
+          <input id="firstName" placeholder="First Name" [(ngModel)]="newEmployee.firstName" name="firstName">
+        </div>
+        <div class="form-field">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" placeholder="Last Name" [(ngModel)]="newEmployee.lastName" name="lastName">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" placeholder="Email" [(ngModel)]="newEmployee.email" name="email">
+        </div>
+        <div class="form-field">
+          <label for="salary">Salary</label>
+          <input id="salary" placeholder="Salary" type="number" [(ngModel)]="newEmployee.salary" name="salary">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="department">Department</label>
+          <input id="department" placeholder="Department" [(ngModel)]="newEmployee.department" name="department">
+        </div>
+        <div class="form-field">
+          <label for="designation">Designation</label>
+          <select id="designation" [(ngModel)]="newEmployee.designation" name="designation">
+            <option value="">Select Designation</option>
+            <option value="Developer">Developer</option>
+            <option value="Analyst">Analyst</option>
+            <option value="Manager">Manager</option>
+            <option value="Recruiter">Recruiter</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" [(ngModel)]="newEmployee.dob" name="dob">
+        </div>
+        <div class="form-field">
+          <label for="joiningDate">Joining Date</label>
+          <input type="date" id="joiningDate" [(ngModel)]="newEmployee.joiningDate" name="joiningDate">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="closeAddModal()">Cancel</button>
+        <button type="button" class="add-btn" (click)="addEmployee()">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

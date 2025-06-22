@@ -1,0 +1,29 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-left">
+      @if (isLoginMode) {
+        <h2>Login</h2>
+      } @else {
+        <h2>Sign Up</h2>
+      }
+
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <input type="email" formControlName="email" placeholder="Email" />
+        <input type="password" formControlName="password" placeholder="Password" />
+        @if (!isLoginMode) {
+          <input type="text" formControlName="username" placeholder="Username" />
+        }
+        <button type="submit">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>
+      </form>
+
+      <p>
+        {{ isLoginMode ? 'Don\'t have an account?' : 'Already have an account?' }}
+        <a (click)="toggleMode()">{{ isLoginMode ? 'Sign Up' : 'Login' }}</a>
+      </p>
+    </div>
+
+    <div class="auth-right">
+      <img src="assets/images/dashboard-illustration.jpg" alt="Auth Illustration" />
+    </div>
+  </div>
+</div>

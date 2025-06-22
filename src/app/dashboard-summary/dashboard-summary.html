@@ -1,0 +1,36 @@
+<navbar></navbar>
+<section class="dashboard">
+  <div class="top-row">
+    <div class="info-block">
+      <h2>Welcome, John</h2>
+      <div class="stats">
+        <div class="stat">Total Employees<br /><strong>{{ totalEmployees }}</strong></div>
+        <div class="stat">Attendance %<br /><strong>{{ attendance }}%</strong></div>
+        <div class="stat">Pending Leaves<br /><strong>{{ pendingLeaves }}</strong></div>
+      </div>
+    </div>
+
+    <div class="illustration">
+      <img src="assets/images/dashboard-illustration.jpg" alt="Illustration" />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button routerLink="/manage-employee"> 
+      <img src="assets/images/add-employee.svg" alt="Manage Employees" />
+      Manage Employee
+    </button>
+    <button>
+      <img src="assets/images/attendance.svg" alt="View Attendance" />
+      View Attendance
+    </button>
+    <button>
+      <img src="assets/images/payroll.svg" alt="Generate Payroll" />
+      Generate Payroll
+    </button>
+    <button>
+      <img src="assets/images/leaves.svg" alt="Approve Leaves" />
+      Approve Leaves
+    </button>
+  </div>
+</section>
